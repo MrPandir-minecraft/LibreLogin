@@ -43,6 +43,7 @@ import xyz.kyngs.librelogin.common.config.HoconMessages;
 import xyz.kyngs.librelogin.common.config.HoconPluginConfiguration;
 import xyz.kyngs.librelogin.common.crypto.Argon2IDCryptoProvider;
 import xyz.kyngs.librelogin.common.crypto.BCrypt2ACryptoProvider;
+import xyz.kyngs.librelogin.common.crypto.Sha512CryptoProvider;
 import xyz.kyngs.librelogin.common.crypto.MessageDigestCryptoProvider;
 import xyz.kyngs.librelogin.common.database.AuthenticDatabaseProvider;
 import xyz.kyngs.librelogin.common.database.connector.AuthenticMySQLDatabaseConnector;
@@ -247,7 +248,7 @@ public abstract class AuthenticLibreLogin<P, S> implements LibreLoginPlugin<P, S
         premiumProvider = new AuthenticPremiumProvider(this);
 
         registerCryptoProvider(new MessageDigestCryptoProvider("SHA-256"));
-        registerCryptoProvider(new MessageDigestCryptoProvider("SHA-512"));
+        registerCryptoProvider(new Sha512CryptoProvider());
         registerCryptoProvider(new BCrypt2ACryptoProvider());
         registerCryptoProvider(new Argon2IDCryptoProvider(logger));
 
