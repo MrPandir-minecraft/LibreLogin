@@ -82,4 +82,11 @@ public class CryptoUtil {
     public record Argon2IDHashedPassword(byte[] hash, Argon2Parameters parameters) {
     }
 
+    public static String bytesToHexString(byte[] bytes) {
+        StringBuilder sb = new StringBuilder();
+        for (byte b : bytes) {
+            sb.append(String.format("%02x", b));
+        }
+        return sb.toString();
+    }
 }
